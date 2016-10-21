@@ -64,6 +64,64 @@
         left: 0;
         right: 0;
     }
+    
+    .svg-wrapper {
+        height: 60px;
+        margin: 0 auto;
+        position: relative;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 320px;
+    }
+    
+    .shape {
+        fill: transparent;
+        stroke-dasharray: 140 540;
+        stroke-dashoffset: -474;
+        stroke-width: 8px;
+        stroke: #ffffff;
+    }
+    
+    .text {
+        color: black;
+        /* font-family: 'Roboto Condensed'; */
+        font-size: 23px;
+        letter-spacing: 8px;
+        line-height: 32px;
+        position: relative;
+        font-weight: 900;
+        top: -48px;
+    }
+    
+    #anim div:hover {
+        color: white;
+        /* font-family: 'Roboto Condensed'; */
+        font-size: 23px;
+        letter-spacing: 8px;
+        line-height: 32px;
+        position: relative;
+        font-weight: 900;
+        top: -48px;
+        cursor: pointer;
+    }
+    
+    @keyframes draw {
+        0% {
+            stroke-dasharray: 140 540;
+            stroke-dashoffset: -474;
+            stroke-width: 8px;
+        }
+        100% {
+            stroke-dasharray: 760;
+            stroke-dashoffset: 0;
+            stroke-width: 2px;
+        }
+    }
+    
+    .svg-wrapper:hover .shape {
+        -webkit-animation: 0.5s draw linear forwards;
+        animation: 0.5s draw linear forwards;
+    }
     </style>
 </head>
 
@@ -73,7 +131,6 @@
             <nav class="navbar" id="main-navbar">
                 <div class="container">
                     <div class="navbar-header">
-                        <!-- Menu Button for Mobile Devices -->
                         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse">
                             <span class="sr-only">Toggle navigation</span>
                             <span class="icon-bar"></span>
@@ -82,62 +139,62 @@
                         </button>
                         <a href="index.html" class="navbar-brand smooth-scroll" style="margin-top:-4px"><img src="logo1234.png" alt="logo" style="padding-top:5px"></a>
                     </div>
-                    <!-- /End Navbar Header -->
                     <div class="collapse navbar-collapse" id="navbar-collapse">
-                        <!-- Menu Links -->
                         <ul class="nav navbar-nav navbar-right">
                             <li><a href="index.html" class="smooth-scroll">Home</a></li>
                             <!-- <li><a href="why.html" class="smooth-scroll">About us</a></li> -->
                             <li class="dropdown" style="background-color:white !important">
                                 <a class="dropbtn" style="cursor: pointer;">Products</a>
                                 <div class="dropdown-content" style="z-index:10 !important;border-radius:4px;">
-                                    <a href="product.html" style="border-top-left-radius: 4px;border-top-right-radius: 4px;">Thermostat</a>
+                                    <a href="product.html" style="border-top-left-radius: 4px;border-top-right-radius: 4px;border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;">Thermostat</a>
                                     <!-- <a href="logger.html">Temperature logger</a> -->
                                     <!-- <a href="fcu.html" style="border-bottom-left-radius: 4px;border-bottom-right-radius: 4px;">FCU controller</a> -->
                                 </div>
                             </li>
-                            <!-- <li><a href="product.html" class="smooth-scroll">Products</a></li> -->
                             <li><a href="app.html" class="smooth-scroll">Download</a></li>
-                            <!-- <li><a href="https://play.google.com/store?hl=en" class="smooth-scroll">Download</a></li> -->
                             <li><a href="contact.html" class="smooth-scroll">Contact us</a></li>
                         </ul>
-                        <!-- /End Menu Links -->
                     </div>
-                    <!-- /End Navbar Collapse -->
                 </div>
-                <!-- /End Container -->
             </nav>
-            <!-- /End Navbar -->
         </header>
-        <section id="hero1-1" class="hero " style="height:100% !important">
-            <img src="images/home.jpg" style="width:100%">
-            <!-- <div class="overlay" style="background-color:rgba(0, 0, 0, 0.67) !important"></div>
+        <section id="hero1-1" class="hero bg-img" style="outline-offset: -3px; background-image: url(&quot;images/home.jpg&quot;); background-attachment: scroll; background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">
+            <!-- <img src="images/home.jpg" style="width:100%"> -->
+            <!-- <div class="overlay" style="background-color:rgba(0, 0, 0, 0.1) !important"></div> -->
             <div class="container vertical-center-rel">
                 <div class="row">
                     <div class="col-md-12">
-                        <h1 class="text-white p-t-md" style="text-align:center">Thermostat</h1>
-                        <p class="lead text-white m-b-md " style="text-align:center">We have been collaborating with brands and agencies to build meaningful digital interactions</p>
-                    </div>
-                </div>
-                </div> -->
-            <!-- /End Container -->
-        </section>
-        <section id="content9-1" class="p-y-lg bg-edit content-dashboard content-align-md" style="outline-offset: -3px;">
-            <div class="container">
-                <div class="row y-middle">
-                    <!-- Device Image -->
-                    <div class="col-md-7 text-center m-b-md wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
-                        <img src="images/happy2.jpg" class="dash-left" alt="" style="border-radius: 0px; border: 1px none rgb(105, 105, 110);margin-left:0px !important;width:100%">
-                    </div>
-                    <!-- Content -->
-                    <div class="col-md-5 center-md">
-                        <h2 class="m-b-md">TFW1001 Thermostat</h2>
-                        <p>TFW1001s can be controlled from mobile app and dashboard from anywhere through internet. High and low temperature alerts are pushed to the mobile devices as per the configuration. TFW1001 - GM Wi-Fi Thermostat provides solution for cooling/heating control for commercial FCU’s and VAV’s. The inbuilt Wi-Fi option enable remote monitoring and control from Mobile APP and Dashboard. Weekly temperature programming option available for automatic temperature control. The self learning and alert feature contribute to enery efficiency and powe saving.</p>
+                        <div class="svg-wrapper" id="anim">
+                            <svg height="60" width="320" xmlns="http://www.w3.org/2000/svg">
+                                <rect class="shape" height="60" width="320" />
+                            </svg>
+                            <a href="#123" class="smoothScroll">
+                                <div class="text" style="text-align:center">Lively controls</div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
-            <!-- /End Row -->
             <!-- /End Container -->
+        </section>
+        <section id="123">
+            <section id="content9-1" class="p-y-lg bg-edit content-dashboard content-align-md" style="outline-offset: -3px;">
+                <div class="container">
+                    <div class="row y-middle" class="smoothScroll">
+                        <!-- Device Image -->
+                        <div class="col-md-7 text-center m-b-md wow fadeInLeft" style="visibility: visible; animation-name: fadeInLeft;">
+                            <img src="images/happy2.jpg" class="dash-left" alt="" style="border-radius: 0px; border: 1px none rgb(105, 105, 110);margin-left:0px !important;width:100%">
+                        </div>
+                        <!-- Content -->
+                        <div class="col-md-5 center-md">
+                            <h2 class="m-b-md">TFW1001 Thermostat</h2>
+                            <p>TFW1001s can be controlled from mobile app and dashboard from anywhere through internet. High and low temperature alerts are pushed to the mobile devices as per the configuration. TFW1001 - GM Wi-Fi Thermostat provides solution for cooling/heating control for commercial FCU’s and VAV’s. The inbuilt Wi-Fi option enable remote monitoring and control from Mobile APP and Dashboard. Weekly temperature programming option available for automatic temperature control. The self learning and alert feature contribute to enery efficiency and powe saving.</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- /End Row -->
+                <!-- /End Container -->
+            </section>
         </section>
         <!-- <div class="container">
             <div class="row" style="margin:0 !important;padding-top:60px;">
@@ -217,10 +274,22 @@
         </section>
         <section style="padding-top:60px !important;padding-bottom:60px !important;">
             <div class="container">
-                <div class="row features-block y-middle">
-                    <!-- Device Image -->
-                    <div class="col-md-7 col-md-push-5 text-center m-b-md wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
-                        <!-- <div class="filler"></div> -->
+                <div class="row" style="margin:0 !important;padding-top:60px;">
+                    <div class="col-md-6" style="text-align:center">
+                        <img src="images/ComfortWhereIt.png" style="width:100%;padding-right:20px">
+                    </div>
+                    <div class="col-md-6 ">
+                        <div>
+                            <h3 class="f-w-900 m-b-md wow " style="visibility: visible;  color: black; font-size: 34px; font-weight: 900; background-color: white;" src="images/logo-black.png">Comfort where it matters</h3>
+                            <p class="m-b-md " src="images/logo-black.png" style="color: black; font-size: 16px; font-weight: 400; background-color: rgba(0, 0, 0, 0);">Ordinary thermostats read the temperature in one room (usually the hallway) which can make your favourite rooms uncomfortable.It works with remote sensors to deliver the right temperature in the rooms that matter most.</p>
+                            <button class="button button--aylen button--round-l button--text-thick" style="margin: 0;padding-top: 10px;padding-bottom: 10px;margin-bottom: 20px;padding-left: 2px;padding-right: 2px;border-radius: 5px;">Learn more</button>
+                        </div>
+                    </div>
+                </div>
+                <!-- <div class="row features-block y-middle"> -->
+                <!-- Device Image -->
+                <!--   <div class="col-md-7 col-md-push-5 text-center m-b-md wow fadeInRight" style="visibility: visible; animation-name: fadeInRight;">
+                      
                         <div>
                             <svg width="200" height="200">
                                 <filter id="innerShadow" x="-20%" y="-20%" width="140%" height="140%">
@@ -245,19 +314,19 @@
                                 <circle id="center" style=" stroke: #4b91f9; stroke-width: 2px;" cx="100" cy="100" r="3"></circle>
                             </svg>
                         </div>
-                    </div>
-                    <!-- Content -->
-                    <div class="col-md-5 col-md-pull-7 center-md" style="text-align:right">
+                    </div> -->
+                <!-- Content -->
+                <!-- <div class="col-md-5 col-md-pull-7 center-md" style="text-align:right">
                         <h2 class="m-b-md">24 hour service</h2>
                         <p>We wanted our Wi-Fi thermostat to be different. Instead of basing it around a wall unit, we built this thermostat around a smart phone app that gives you control over everything from everywhere.You can control it from anywhere you want to.
                             <br>
                             <br>
                         </p>
                     </div>
-                </div>
+                </div> -->
                 <!-- /End Row -->
-            </div>
-            <!-- /End Container -->
+                <!-- </div> -->
+                <!-- /End Container -->
         </section>
         <section id="hero1-1" class="hero bg-img" style="outline-offset: -3px; background-image: url(&quot;images/home4.jpg&quot;); background-attachment: scroll; background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: 50% 50%; background-repeat: no-repeat;">
             <div class="overlay"></div>
@@ -295,61 +364,63 @@
             </div>
             <!-- /End Container -->
         </footer>
-    </div>
-    <script>
-    var hands = [];
-    hands.push(document.querySelector('#secondhand > *'));
-    hands.push(document.querySelector('#minutehand > *'));
-    hands.push(document.querySelector('#hourhand > *'));
+        </div>
+        <script>
+        var hands = [];
+        hands.push(document.querySelector('#secondhand > *'));
+        hands.push(document.querySelector('#minutehand > *'));
+        hands.push(document.querySelector('#hourhand > *'));
 
-    var cx = 100;
-    var cy = 100;
+        var cx = 100;
+        var cy = 100;
 
-    function shifter(val) {
-        return [val, cx, cy].join(' ');
-    }
+        function shifter(val) {
+            return [val, cx, cy].join(' ');
+        }
 
-    var date = new Date();
-    var hoursAngle = 360 * date.getHours() / 12 + date.getMinutes() / 2;
-    var minuteAngle = 360 * date.getMinutes() / 60;
-    var secAngle = 360 * date.getSeconds() / 60;
+        var date = new Date();
+        var hoursAngle = 360 * date.getHours() / 12 + date.getMinutes() / 2;
+        var minuteAngle = 360 * date.getMinutes() / 60;
+        var secAngle = 360 * date.getSeconds() / 60;
 
-    hands[0].setAttribute('from', shifter(secAngle));
-    hands[0].setAttribute('to', shifter(secAngle + 360));
-    hands[1].setAttribute('from', shifter(minuteAngle));
-    hands[1].setAttribute('to', shifter(minuteAngle + 360));
-    hands[2].setAttribute('from', shifter(hoursAngle));
-    hands[2].setAttribute('to', shifter(hoursAngle + 360));
+        hands[0].setAttribute('from', shifter(secAngle));
+        hands[0].setAttribute('to', shifter(secAngle + 360));
+        hands[1].setAttribute('from', shifter(minuteAngle));
+        hands[1].setAttribute('to', shifter(minuteAngle + 360));
+        hands[2].setAttribute('from', shifter(hoursAngle));
+        hands[2].setAttribute('to', shifter(hoursAngle + 360));
 
-    for (var i = 1; i <= 12; i++) {
-        var el = document.createElementNS('http://www.w3.org/2000/svg', 'line');
-        el.setAttribute('x1', '100');
-        el.setAttribute('y1', '30');
-        el.setAttribute('x2', '100');
-        el.setAttribute('y2', '40');
-        el.setAttribute('transform', 'rotate(' + (i * 360 / 12) + ' 100 100)');
-        el.setAttribute('style', 'stroke: #ffffff;');
-        document.querySelector('svg').appendChild(el);
-    }
-    </script>
-    <script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script>
-    <script src="js/plugins/jquery1.11.2.min.js"></script>
-    <script src="js/plugins/bootstrap.min.js"></script>
-    <script src="js/plugins/jquery.easing.1.3.min.js"></script>
-    <script src="js/plugins/jquery.countTo.js"></script>
-    <script src="js/plugins/jquery.formchimp.min.js"></script>
-    <script src="js/plugins/jquery.jCounter-0.1.4.js"></script>
-    <script src="js/plugins/jquery.magnific-popup.min.js"></script>
-    <script src="js/plugins/jquery.vide.min.js"></script>
-    <script src="js/plugins/owl.carousel.min.js"></script>
-    <script src="js/plugins/spectragram.min.js"></script>
-    <script src="js/plugins/twitterFetcher_min.js"></script>
-    <script src="js/plugins/wow.min.js"></script>
-    <script src="js/plugins/picker.js"></script>
-    <script src="js/plugins/picker.date.js"></script>
-    <!-- Custom Script -->
-    <script src="js/custom.js"></script>
-    <iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;"></iframe>
+        for (var i = 1; i <= 12; i++) {
+            var el = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+            el.setAttribute('x1', '100');
+            el.setAttribute('y1', '30');
+            el.setAttribute('x2', '100');
+            el.setAttribute('y2', '40');
+            el.setAttribute('transform', 'rotate(' + (i * 360 / 12) + ' 100 100)');
+            el.setAttribute('style', 'stroke: #ffffff;');
+            document.querySelector('svg').appendChild(el);
+        }
+        </script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+        <script src="smoothscroll.js"></script>
+        <script id="twitter-wjs" src="https://platform.twitter.com/widgets.js"></script>
+        <script src="js/plugins/jquery1.11.2.min.js"></script>
+        <script src="js/plugins/bootstrap.min.js"></script>
+        <script src="js/plugins/jquery.easing.1.3.min.js"></script>
+        <script src="js/plugins/jquery.countTo.js"></script>
+        <script src="js/plugins/jquery.formchimp.min.js"></script>
+        <script src="js/plugins/jquery.jCounter-0.1.4.js"></script>
+        <script src="js/plugins/jquery.magnific-popup.min.js"></script>
+        <script src="js/plugins/jquery.vide.min.js"></script>
+        <script src="js/plugins/owl.carousel.min.js"></script>
+        <script src="js/plugins/spectragram.min.js"></script>
+        <script src="js/plugins/twitterFetcher_min.js"></script>
+        <script src="js/plugins/wow.min.js"></script>
+        <script src="js/plugins/picker.js"></script>
+        <script src="js/plugins/picker.date.js"></script>
+        <!-- Custom Script -->
+        <script src="js/custom.js"></script>
+        <iframe id="rufous-sandbox" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="true" style="position: absolute; visibility: hidden; display: none; width: 0px; height: 0px; padding: 0px; border: none;"></iframe>
 </body>
 
 </html>
